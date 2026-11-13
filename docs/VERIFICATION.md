@@ -13,6 +13,7 @@ Verified locally on Windows 11, Python 3.14.6, SQLite WAL. Dependencies were ins
 | `node --check frontend/app.js` | JavaScript syntax accepted |
 | `docker compose config --quiet` | Compose configuration accepted |
 | `python scripts/smoke_http.py` against the local server | 16 concurrent HTTP imports created one version; edit, stale-write rejection, cited answer and deletion all passed |
+| GitHub Actions, Python 3.13 / Ubuntu | Regression suite and Docker Compose/PostgreSQL HTTP lifecycle checks both passed; [verified run](https://github.com/addhayayanpandey111/incident-atlas-rca-sop/actions/runs/43449971220) |
 
 Raw evidence is in `evaluation/results/`. Browser screenshots are `docs/library-desktop.png` and `docs/library-mobile.png`; both were visually inspected. The smoke script uses a real running server at `127.0.0.1:8000`.
 
@@ -24,7 +25,7 @@ The regression suite includes 24 concurrent repeated ingestions, canonical/alias
 - All 34 query cases are author-created synthetic fixtures. There was no separately supplied query dataset in the workspace, no independent annotation, and no real incident corpus.
 - Scale latency measures direct service calls over a generated 3,000-document corpus, one client and 30 samples per operation. It excludes user-network latency, concurrent engineer traffic, model latency and container overhead.
 - The optional LLM integration was tested with mocked responses and outages. No live API key/provider was used.
-- Docker CLI is installed but its Linux engine was unavailable. The Compose/PostgreSQL stack was **not run locally**. A CI job is supplied to build the stack and run real HTTP concurrent-ingestion/lifecycle checks, but that CI job has not been executed from this workspace.
+- Docker CLI is installed but its Linux engine was unavailable, so the Compose/PostgreSQL stack was **not run locally**. After publishing, the GitHub Actions job successfully built and started the full stack on Ubuntu and passed the real HTTP concurrent-ingestion/lifecycle checks. This closes the initial container-verification gap; it does not establish a production load SLA.
 - The built-in in-app browser tool failed to initialize; headless installed Edge through Playwright provided the successful UI verification.
 - The installed Starlette test client reports a deprecation warning for its `httpx` adapter. This did not fail tests. A future dependency refresh should move the test harness to the recommended adapter after compatibility verification.
 

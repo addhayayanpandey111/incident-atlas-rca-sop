@@ -1,8 +1,12 @@
 # Incident Atlas
 
+[![Quality gates](https://github.com/addhayayanpandey111/incident-atlas-rca-sop/actions/workflows/quality.yml/badge.svg)](https://github.com/addhayayanpandey111/incident-atlas-rca-sop/actions/workflows/quality.yml)
+
 A working RCA/SOP knowledge assistant for incident responders. It imports structured and legacy documents, versions them transactionally, distinguishes incident explanations from procedures, and returns inspectable source evidence.
 
 **This is an assignment prototype, not a production-certified incident automation tool.** It never executes runbook commands. Sample procedures and incidents are synthetic fixtures.
+
+![Incident Atlas knowledge library](docs/library-desktop.png)
 
 ## Start everything
 
