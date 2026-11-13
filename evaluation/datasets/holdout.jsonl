@@ -1,0 +1,22 @@
+{"id":"holdout-01","origin":"greenfield","operation":"search","query":"SOP-103","expected_ids":["SOP-103"]}
+{"id":"holdout-02","origin":"greenfield","operation":"search","query":"SOP-909 memory","expected_ids":[]}
+{"id":"holdout-03","origin":"greenfield","operation":"search","query":"Kafka consumer lag","kind":"RCA","expected_ids":["RCA-102"]}
+{"id":"holdout-04","origin":"greenfield","operation":"search","query":"catalog OOM memory","kind":"SOP","expected_ids":["SOP-103"]}
+{"id":"holdout-05","origin":"greenfield","operation":"search","query":"astronaut telescope moon","expected_ids":[]}
+{"id":"holdout-06","origin":"greenfield","operation":"chat","query":"What was RCA-102 impact?","expected_outcome":"answered","expected_kind":"RCA","contains":"24 minutes"}
+{"id":"holdout-07","origin":"greenfield","operation":"chat","query":"SOP-103 rollback","expected_outcome":"answered","expected_kind":"SOP","contains":"Restore the recorded batch size"}
+{"id":"holdout-08","origin":"greenfield","operation":"chat","query":"RCA and SOP for catalog","expected_outcome":"clarification"}
+{"id":"holdout-09","origin":"greenfield","operation":"intent","query":"kaise rollback karein","expected_intent":"sop_question"}
+{"id":"holdout-10","origin":"greenfield","operation":"intent","query":"what caused the outage","expected_intent":"rca_question"}
+{"id":"holdout-11","origin":"greenfield","operation":"suggestions","query":"catalog cache OOMKilled memory","expected_rca":"RCA-103","expected_sop":"SOP-103"}
+{"id":"holdout-12","origin":"greenfield","operation":"suggestions","query":"Kafka consumer lag backlog","expected_rca":"RCA-102","expected_sop":"SOP-102"}
+{"id":"holdout-13","origin":"brownfield","operation":"search","query":"Redis replica","expected_ids":[],"reviewed":false}
+{"id":"holdout-14","origin":"brownfield","operation":"search","query":"checkout nameserver","kind":"RCA","expected_ids":["$dns"],"reviewed":true}
+{"id":"holdout-15","origin":"brownfield","operation":"search","query":"redis replication delay","kind":"SOP","expected_ids":["$redis_sop"],"reviewed":true}
+{"id":"holdout-16","origin":"brownfield","operation":"chat","query":"What caused the checkout DNS outage?","expected_outcome":"answered","expected_kind":"RCA","contains":"retired nameserver","reviewed":true}
+{"id":"holdout-17","origin":"brownfield","operation":"chat","query":"redis SOP prerequisites","expected_outcome":"answered","expected_kind":"SOP","contains":"on-call approval","reviewed":true}
+{"id":"holdout-18","origin":"brownfield","operation":"chat","query":"old database SOP steps","expected_outcome":"unsupported","reviewed":false}
+{"id":"holdout-19","origin":"brownfield","operation":"intent","query":"rca sop","expected_intent":"mixed"}
+{"id":"holdout-20","origin":"brownfield","operation":"intent","query":"please help","expected_intent":"clarification_needed"}
+{"id":"holdout-21","origin":"brownfield","operation":"suggestions","query":"redis replica snapshot network","expected_rca":"$redis_rca","expected_sop":"$redis_sop","reviewed":true}
+{"id":"holdout-22","origin":"brownfield","operation":"suggestions","query":"quantum photon telescope","expected_rca":null,"expected_sop":null,"reviewed":true}

@@ -1,0 +1,5 @@
+fastapi==0.162.5
+uvicorn==0.54.0
+SQLAlchemy==2.1.8
+psycopg[binary]==3.3.9
+pypdf==7.0.1

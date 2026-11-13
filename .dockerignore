@@ -1,0 +1,9 @@
+.deps
+.venv
+.git
+data
+__pycache__
+.pytest_cache
+*.pdf
+.env
+evaluation/results

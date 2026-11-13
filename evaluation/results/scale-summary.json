@@ -1,0 +1,20 @@
+{
+  "documents": 3000,
+  "database": "SQLite",
+  "python": "3.14.6",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "mode": "direct service calls, single client, synthetic corpus; no HTTP/provider/400-user concurrency",
+  "search": {
+    "p50_ms": 212.88,
+    "p95_ms": 234.978,
+    "max_ms": 294.595,
+    "samples": 30
+  },
+  "suggestions": {
+    "p50_ms": 281.316,
+    "p95_ms": 332.754,
+    "max_ms": 384.303,
+    "samples": 30
+  },
+  "targets_met": true
+}

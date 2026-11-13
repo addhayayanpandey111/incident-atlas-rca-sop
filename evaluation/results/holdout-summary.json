@@ -1,0 +1,112 @@
+{
+  "split": "holdout",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.6",
+  "dataset_kind": "author-created synthetic cases; reused regression partition, not independently blinded. Initial holdout results preserved separately.",
+  "database": "SQLite",
+  "model_mode": "disabled",
+  "overall": {
+    "passed": 22,
+    "total": 22,
+    "accuracy": 1.0,
+    "wilson_95": [
+      0.8513,
+      1.0
+    ],
+    "p95_ms": 7.844
+  },
+  "groups": {
+    "brownfield/chat": {
+      "passed": 3,
+      "total": 3,
+      "accuracy": 1.0,
+      "wilson_95": [
+        0.4385,
+        1.0
+      ],
+      "p95_ms": 7.844
+    },
+    "brownfield/intent": {
+      "passed": 2,
+      "total": 2,
+      "accuracy": 1.0,
+      "wilson_95": [
+        0.3424,
+        1.0
+      ],
+      "p95_ms": 0.225
+    },
+    "brownfield/search": {
+      "passed": 3,
+      "total": 3,
+      "accuracy": 1.0,
+      "wilson_95": [
+        0.4385,
+        1.0
+      ],
+      "p95_ms": 5.756
+    },
+    "brownfield/suggestions": {
+      "passed": 2,
+      "total": 2,
+      "accuracy": 1.0,
+      "wilson_95": [
+        0.3424,
+        1.0
+      ],
+      "p95_ms": 7.095
+    },
+    "greenfield/chat": {
+      "passed": 3,
+      "total": 3,
+      "accuracy": 1.0,
+      "wilson_95": [
+        0.4385,
+        1.0
+      ],
+      "p95_ms": 8.213
+    },
+    "greenfield/intent": {
+      "passed": 2,
+      "total": 2,
+      "accuracy": 1.0,
+      "wilson_95": [
+        0.3424,
+        1.0
+      ],
+      "p95_ms": 0.013
+    },
+    "greenfield/search": {
+      "passed": 5,
+      "total": 5,
+      "accuracy": 1.0,
+      "wilson_95": [
+        0.5655,
+        1.0
+      ],
+      "p95_ms": 6.092
+    },
+    "greenfield/suggestions": {
+      "passed": 2,
+      "total": 2,
+      "accuracy": 1.0,
+      "wilson_95": [
+        0.3424,
+        1.0
+      ],
+      "p95_ms": 7.489
+    }
+  },
+  "request_metrics": {
+    "requests": 22,
+    "p95_ms": 4.052900010719895,
+    "model_calls": 0,
+    "estimated_cost_usd": 0.0
+  },
+  "limitations": [
+    "Small fixture corpus; not production accuracy or a load-test SLA.",
+    "Brownfield retrieval measured after explicit simulated owner review; pre-review quarantine measured separately.",
+    "No real model/provider measurement in this run.",
+    "Wilson intervals assume independent Bernoulli cases; related synthetic cases weaken that assumption."
+  ]
+}

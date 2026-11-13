@@ -1,0 +1,102 @@
+{
+  "split": "development",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.6",
+  "dataset_kind": "author-created synthetic cases; reused regression partition, not independently blinded. Initial holdout results preserved separately.",
+  "database": "SQLite",
+  "model_mode": "disabled",
+  "overall": {
+    "passed": 12,
+    "total": 12,
+    "accuracy": 1.0,
+    "wilson_95": [
+      0.7575,
+      1.0
+    ],
+    "p95_ms": 7.282
+  },
+  "groups": {
+    "brownfield/chat": {
+      "passed": 2,
+      "total": 2,
+      "accuracy": 1.0,
+      "wilson_95": [
+        0.3424,
+        1.0
+      ],
+      "p95_ms": 7.282
+    },
+    "brownfield/intent": {
+      "passed": 1,
+      "total": 1,
+      "accuracy": 1.0,
+      "wilson_95": [
+        0.2065,
+        1.0
+      ],
+      "p95_ms": 0.009
+    },
+    "brownfield/search": {
+      "passed": 2,
+      "total": 2,
+      "accuracy": 1.0,
+      "wilson_95": [
+        0.3424,
+        1.0
+      ],
+      "p95_ms": 5.594
+    },
+    "greenfield/chat": {
+      "passed": 2,
+      "total": 2,
+      "accuracy": 1.0,
+      "wilson_95": [
+        0.3424,
+        1.0
+      ],
+      "p95_ms": 6.391
+    },
+    "greenfield/intent": {
+      "passed": 1,
+      "total": 1,
+      "accuracy": 1.0,
+      "wilson_95": [
+        0.2065,
+        1.0
+      ],
+      "p95_ms": 0.273
+    },
+    "greenfield/search": {
+      "passed": 3,
+      "total": 3,
+      "accuracy": 1.0,
+      "wilson_95": [
+        0.4385,
+        1.0
+      ],
+      "p95_ms": 5.026
+    },
+    "greenfield/suggestions": {
+      "passed": 1,
+      "total": 1,
+      "accuracy": 1.0,
+      "wilson_95": [
+        0.2065,
+        1.0
+      ],
+      "p95_ms": 5.779
+    }
+  },
+  "request_metrics": {
+    "requests": 14,
+    "p95_ms": 4.03150002239272,
+    "model_calls": 0,
+    "estimated_cost_usd": 0.0
+  },
+  "limitations": [
+    "Small fixture corpus; not production accuracy or a load-test SLA.",
+    "Brownfield retrieval measured after explicit simulated owner review; pre-review quarantine measured separately.",
+    "No real model/provider measurement in this run.",
+    "Wilson intervals assume independent Bernoulli cases; related synthetic cases weaken that assumption."
+  ]
+}

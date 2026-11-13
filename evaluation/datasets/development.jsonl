@@ -1,0 +1,12 @@
+{"id":"dev-01","origin":"greenfield","operation":"search","query":"RCA-101","expected_ids":["RCA-101"]}
+{"id":"dev-02","origin":"greenfield","operation":"search","query":"RCA-999 payments","expected_ids":[]}
+{"id":"dev-03","origin":"greenfield","operation":"search","query":"payments database connection","kind":"SOP","expected_ids":["SOP-101"]}
+{"id":"dev-04","origin":"greenfield","operation":"chat","query":"Why did RCA-101 happen?","expected_outcome":"answered","expected_kind":"RCA","contains":"did not release database connections"}
+{"id":"dev-05","origin":"greenfield","operation":"chat","query":"SOP-102 steps","expected_outcome":"answered","expected_kind":"SOP","contains":"1. Identify"}
+{"id":"dev-06","origin":"greenfield","operation":"intent","query":"error connection timeout","expected_intent":"incident_suggestions"}
+{"id":"dev-07","origin":"greenfield","operation":"suggestions","query":"payments connection timeout","expected_rca":"RCA-101","expected_sop":"SOP-101"}
+{"id":"dev-08","origin":"brownfield","operation":"search","query":"DNS lookup","expected_ids":[],"reviewed":false}
+{"id":"dev-09","origin":"brownfield","operation":"search","query":"DNS resolution checkout","kind":"RCA","expected_ids":["$dns"],"reviewed":true}
+{"id":"dev-10","origin":"brownfield","operation":"chat","query":"why redis replica","expected_outcome":"answered","expected_kind":"RCA","contains":"network bandwidth","reviewed":true}
+{"id":"dev-11","origin":"brownfield","operation":"chat","query":"redis SOP steps","expected_outcome":"answered","expected_kind":"SOP","contains":"1. Inspect replication","reviewed":true}
+{"id":"dev-12","origin":"brownfield","operation":"intent","query":"help","expected_intent":"clarification_needed"}

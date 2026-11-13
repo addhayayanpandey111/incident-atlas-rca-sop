@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Incident Atlas · Operational knowledge</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/"><span class="brand-icon">A</span><span>incident<span class="brand-light">atlas</span></span></a>
+    <div class="workspace-label">ENGINEERING WORKSPACE</div>
+    <nav aria-label="Main navigation">
+      <button class="nav active" data-view="knowledge"><span>◈</span> Knowledge library</button>
+      <button class="nav" data-view="incident"><span>ϟ</span> Incident assistant</button>
+      <button class="nav" data-view="chat"><span>▤</span> Document chat</button>
+      <button class="nav" data-view="reviews"><span>◇</span> Review queue <span id="review-count" class="nav-count">—</span></button>
+      <button class="nav" data-view="metrics"><span>▥</span> Observability</button>
+    </nav>
+    <div class="sidebar-bottom"><span class="status-dot"></span><span id="health-label">Connecting…</span><p>Evidence first. Every incident.</p><button id="admin-settings" class="text-button">Admin access settings</button></div>
+  </aside>
+  <main>
+    <header class="topbar"><span>Workspace <span class="slash">/</span> <strong id="breadcrumb">Knowledge library</strong></span><span class="local-badge">LOCAL WORKSPACE</span></header>
+    <section class="page-heading"><div><div class="eyebrow">YOUR OPERATIONAL MEMORY</div><h1 id="page-title">The right knowledge.<br><span>When it matters.</span></h1><p id="page-subtitle">Find the incident behind the symptom. Follow the procedure with confidence.</p></div><button id="upload-button" class="primary">＋ Import document</button><input id="upload" type="file" accept=".md,.txt,.pdf" hidden></section>
+    <div id="notice" class="notice" role="status" hidden></div>
+    <section id="knowledge" class="view">
+      <div class="stat-grid"><article class="stat"><span>Knowledge documents</span><strong id="stat-total">—</strong><small>Verified and available</small></article><article class="stat"><span>Root cause analyses</span><strong id="stat-rca">—</strong><small><i class="dot purple"></i> Learn from past incidents</small></article><article class="stat"><span>Operating procedures</span><strong id="stat-sop">—</strong><small><i class="dot teal"></i> Act with ordered, exact steps</small></article></div>
+      <form id="search-form" class="search-box"><span aria-hidden="true">⌕</span><input id="search" aria-label="Search documents" placeholder="Search a document ID, service, error message or symptom…"><button class="primary" type="submit">Search <span>↗</span></button></form>
+      <div class="library-toolbar"><div class="tabs" role="group" aria-label="Document type"><button class="tab active" data-kind="">All documents</button><button class="tab" data-kind="RCA">RCAs</button><button class="tab" data-kind="SOP">SOPs</button></div><span id="result-count" class="muted"></span></div>
+      <div id="search-note" class="search-note" hidden></div><div id="documents" class="document-grid"></div>
+      <div class="principle"><span>✧</span><div><strong>Clear evidence. No guesswork.</strong><p>RCAs explain what happened. SOPs show what to do. We keep them distinct.</p></div></div>
+    </section>
+    <section id="incident" class="view" hidden><div class="panel"><div class="eyebrow">LIVE ISSUE</div><h2>Start with what you’re seeing.</h2><p>Paste an alert, error message or symptoms. Matching incidents and procedures stay separate.</p><form id="incident-form"><textarea id="incident-input" aria-label="Incident description" placeholder="Payments API returns 503. Database connection pool exhausted…" required></textarea><button class="primary">Find relevant knowledge ↗</button></form></div><div class="suggestion-columns"><div><h2><span class="badge rca">RCA</span> Similar incidents</h2><div id="incident-rcas"></div></div><div><h2><span class="badge sop">SOP</span> Operating procedures</h2><div id="incident-sops"></div></div></div></section>
+    <section id="chat" class="view" hidden><div class="chat-layout"><div class="chat-main panel"><div class="chat-heading"><div><div class="eyebrow">GROUNDED CONVERSATION</div><h2>Ask your operational knowledge.</h2></div><button id="reset-chat" class="secondary">New chat</button></div><div id="chat-messages" aria-live="polite"><div class="welcome"><span>✧</span><h3>Start with a document or a question.</h3><p>Try “Why did payments fail?” or “SOP-101 steps”.<br>Answers quote active source documents with versioned citations.</p></div></div><form id="chat-form"><input id="chat-input" aria-label="Chat message" placeholder="Ask about an incident or procedure…" required><button class="primary">Send ↑</button></form></div><aside class="chat-help panel"><div class="eyebrow">DESIGNED FOR TRUST</div><h3>Evidence you can inspect.</h3><p>Every answer links to a document and version.</p><hr><h3>Procedures stay intact.</h3><p>SOPs keep their prerequisites, original step order, checks and rollback.</p><hr><h3>Uncertainty is visible.</h3><p>Ambiguous requests ask for clarification. Missing evidence stays missing.</p><p id="chat-context" class="context-label">No document selected</p></aside></div></section>
+    <section id="reviews" class="view" hidden><div class="section-caption"><h2>Human judgment, where it counts.</h2><p>Legacy and incomplete documents stay out of search until reviewed. Structural procedure errors require source correction.</p></div><div id="review-list" class="document-grid"></div></section>
+    <section id="metrics" class="view" hidden><div id="metric-summary" class="stat-grid"></div><div class="panel"><h2>Recent requests</h2><p id="cost-note"></p><div class="table-scroll"><table><thead><tr><th>Route</th><th>Latency</th><th>Model calls</th><th>Tokens in / out</th><th>Cost USD</th><th>Status</th></tr></thead><tbody id="metric-rows"></tbody></table></div></div></section>
+    <footer>INCIDENT ATLAS <span>Built for the moments that matter.</span></footer>
+  </main>
+  <dialog id="document-dialog"><div class="dialog-heading"><div id="document-meta"></div><button id="close-dialog" class="icon-button" aria-label="Close document">×</button></div><h2 id="document-title"></h2><p id="document-detail" class="muted"></p><div id="document-warning" class="notice" hidden></div><div id="document-content"></div><div id="review-actions"></div><button id="ask-document" class="primary">Ask about this document ↗</button></dialog>
+</body>
+</html>
